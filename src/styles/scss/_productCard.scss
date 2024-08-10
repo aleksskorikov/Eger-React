@@ -1,0 +1,93 @@
+@import './_changeable';
+@import './_mixins';
+@import "./_templates";
+
+.products {
+    &__card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        cursor: pointer;
+    }
+}
+
+
+.card,
+.card-two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+    border: 4px solid $card-border-color;
+    background: $menu-color-bg;
+    box-shadow: 3px 3px 30px $title-text-shadow;
+    border-radius: 10px;
+}
+
+.card-img {
+    border-radius: 5px;
+    width: 100%;
+}
+
+.product-name {
+    font-size: 1.5rem;
+    padding: 1rem 0.5rem;
+}
+
+.product-price {
+    font-size: 2rem;
+    color: red;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+
+.on-all {
+    @extend %button-on-all;
+}
+
+@keyframes on-all {
+    0% {
+        top: 90%;
+        right: 1%;
+    }
+
+    100% {
+        top: 70%;
+        right: 1%;
+    }
+}
+
+@media (max-width: 550px) {
+    .activ {
+        border: 4px solid gray;
+    }
+
+    .menu__one {
+        padding: 1rem;
+    }
+
+    .menu__img,
+    .menu-two__img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .menu__name {
+        font-size: 1rem;
+    }
+
+    .card,
+    .card-two {
+        width: 10rem;
+    }
+
+    .product-name {
+        font-size: 1rem;
+    }
+
+    .product-price {
+        font-size: 1.5rem;
+    }
+}

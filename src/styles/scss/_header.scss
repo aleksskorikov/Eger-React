@@ -1,0 +1,136 @@
+@import './changeable';
+@import './mixins';
+
+.header {
+    background: $colobg;
+    box-shadow: $color-box-shadow;
+
+    &__block-logo {
+        width: 10rem;
+    }
+
+    &__block-title {
+        text-align: center;
+        font-family: $fontfamily-title;
+    }
+
+    &__block-sety {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+        padding-top: 2rem;
+    }
+}
+
+.header {
+    &__block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    &__block-items {
+        font-family: $fontfamily-data;
+    }
+}
+
+.logo {
+    &__block-img {
+        width: 100%;
+        border-radius: 50%;
+    }
+}
+
+.block {
+    &__title-title {
+        @include adaptiv-font(96, 48);
+    }
+
+    &__title-subtitle {
+        @include adaptiv-font(64, 32);
+    }
+
+    &__sety-icons {
+        position: relative;
+        width: 40px;
+        border-radius: 10px;
+        box-shadow: 0 3px 0 gray;
+        top: 0;
+        transition-duration: 0.5s;
+
+        &:active {
+            top: 2px;
+            box-shadow: 0 1px 0 gray;
+        }
+    }
+}
+
+.block-items-data {
+    display: flex;
+}
+
+.items-data-sity,
+.items-data-adress,
+.items-data-tel {
+    @include adaptiv-font(32, 16);
+}
+
+
+.data {
+    &__tel-img {
+        margin: 3px 1rem;
+        border-radius: 10px;
+    }
+}
+
+
+@media (max-width: 1025px) {
+    .header {
+        &__block {
+            justify-content: space-around;
+        }
+
+        &__block-sety {
+            padding-top: 1rem;
+        }
+
+        .block-items-data {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .items-data-adress {
+            margin: 0.8rem 0;
+        }
+    }
+}
+
+@media (max-width: 821px) {
+    .block {
+        &__sety-icons {
+            width: 30px;
+        }
+    }
+
+}
+
+@media (max-width: 431px) {
+    .header {
+        &__block {
+            flex-direction: column;
+        }
+
+        .block {
+            &__sety-icons {
+                width: 40px;
+            }
+        }
+
+        .items-data-tel {
+            display: flex;
+            align-items: center;
+        }
+    }
+}

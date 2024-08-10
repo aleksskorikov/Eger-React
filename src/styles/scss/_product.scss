@@ -1,0 +1,220 @@
+@import './_changeable';
+@import './_mixins';
+@import "./_templates";
+
+
+
+.button-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    width: 350px;
+    height: 40px;
+    border-radius: 20px;
+    background: #BDB76B;
+    box-shadow: 0 5px 0 gray;
+    transition-duration: 1s;
+    transition: background-color 0.5s ease 0s;
+    position: relative;
+    top: 0;
+        &:hover {
+        background: #ece277;
+    }
+
+    &:active {
+        top: 3px;
+        box-shadow: 0 2px 0 rgb(11, 18, 11);
+    }
+}
+.to-home {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    background: inherit;
+}
+
+.product {
+
+    // .product__slider
+
+    &__slider {
+        margin: 3rem auto;
+        width: 50%;
+        .slick-dots li button::before {
+            font-size: 0;
+        }
+        .slick-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            
+
+            button {
+                font-size: 0;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: white;
+            }
+
+            li {
+                margin: 0 10px;
+            }
+
+            .slick-active button {
+                background: transparent;
+                border: 2px solid black;
+            }
+        }
+        .slick-arrow {
+            font-size: 0;
+            position: absolute;
+            width: 2.5rem;
+            height: 4.4rem;
+            top: 40%;
+            z-index: 10;
+        }
+        .slick-prev,
+        .slick-next::before {
+            content: url(../../assets//images/arrow.svg);
+            }
+
+        .slick-prev {
+            left: -10%;
+            transform: rotateY(180deg);
+            }
+
+        .slick-next {
+            right: -10%;
+            top: 45%;
+            }
+        }
+
+        &__slider-slide {
+            width: 100%;
+
+        }
+
+        &__slider-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid $colobg;
+            border-radius: 1rem;
+            background: $menu-color-bg;
+            padding: 1rem 1rem;
+        }
+
+        &__slider-image {
+            width: 100%;
+            max-height: 35rem;
+            object-fit: scale-down;
+        }
+    }
+
+
+.products-name {
+    text-align: center;
+    @include adaptiv-font(48, 32);
+}
+
+.products-price {
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 2rem;
+    color: red;
+    @include adaptiv-font(64, 36);
+}
+
+
+.products-description {
+    max-width: 60%;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 2rem;
+}
+.product-lists{
+    text-align: start;
+}
+
+.product-list{
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.product-list::marker{
+    content: '\1F525';
+}
+
+.btn-poz{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+
+}
+.buy-btn{
+    position: relative;
+    z-index: 10;
+    width: 10rem;
+    height: 3rem;
+    background:green;
+    border-radius: 10px;
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+    &:hover{
+        background: rgb(54, 225, 54);
+    }
+}
+
+.product__marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: #EEE8AA;
+    font-size: 2rem;
+    color: red;
+    padding: 10px 0;
+    margin-top: 4rem;
+    margin-bottom: -4rem;
+}
+
+.product__marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 913px) {
+    .product {
+    
+            // .product__slider
+    
+            &__slider {
+                width: 80%;
+    
+                .slick-arrow {
+                    display: none;
+                }
+            }
+    
+            &__slider-item {
+                padding: 1rem 1rem;
+            }
+        }
+}

@@ -1,0 +1,88 @@
+@import './_changeable';
+@import './_mixins';
+@import "./_templates";
+
+
+.sections{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hanter-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 3.5rem;
+    height: 8rem;
+    background-color: $back-bg;
+    padding: 1rem;
+}
+
+.hanter,
+.fisthing,
+.weapon,
+.tourizm {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    // .hanter__list-subtitle
+
+    &__list-subtitle {
+        text-align: center;
+        font-size: 2rem;
+        // margin: 1.5rem 0 1rem;
+        background-color: #e1da81e4;
+    }
+
+    // .hanter__list-list
+
+    &__list-list {
+    }
+}
+
+
+
+.hanting {
+
+    // .hanting__lists
+
+    &__lists {
+        list-style: none;
+    }
+
+    // .hanting__list
+
+    &__list {}
+
+    // .hanting__list-title
+
+    &__list-title {
+        background-color: #d8d27be4;
+        text-align: center;
+        font-size: 3rem;
+        // margin: 0 0 1rem 0;
+        text-transform: lowercase;
+    }
+
+    // .hanting__lists-list
+
+    &__lists-list {
+        list-style: disc;
+        padding: 0.5rem;
+        margin-left: 2rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: blueviolet;
+    }
+}
+
+.lists-nsme {}
+
+.fisthing {}
+
+.weapon {}
+
+.tourizm {}

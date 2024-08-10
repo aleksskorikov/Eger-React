@@ -1,0 +1,339 @@
+@import './_changeable';
+@import './_mixins';
+@import "./_templates";
+
+.nav {
+    margin-top: 3rem;
+
+    &__menu {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    &__buttom {
+        @extend %navbuttom;
+    }
+}
+
+
+.section {
+    text-align: center;
+
+    &__title {
+        margin: 3% 0;
+        text-shadow: 3px 3px 30px $title-text-shadow;
+        font-family: $fontfamily-title;
+        font-weight: bold;
+        letter-spacing: 1rem;
+        text-transform: uppercase;
+        @include adaptiv-font(48, 16);
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        background: $info-color-bg;
+        border: 2px solid $info-color-border;
+        border-radius: 10px;
+        font-family: $fontfamily-data;
+        box-shadow: 10px 10px 25px 1px $info-color-box-shadow;
+    }
+
+    &__foto {
+        flex: 0 0 60%;
+        height: 26rem;
+        background-image: url(../../assets//images/hanter-foto/hunting.jpg);
+        background-position: center;
+        background-size: cover;
+        border: 2px solid $info-color-border;
+        border-radius: 10px;
+    }
+
+    &__text {
+        text-align: center;
+        flex: 1 1 auto;
+        padding: 2%;
+        @include adaptiv-font(24, 16);
+    }
+}
+
+.fishing {
+    background-image: url(../../assets/images/fishing-foto/fishing.svg);
+}
+
+.self-defense {
+    background-image: url(../../assets/images/weapon-foto/self-defense.webp);
+}
+
+.tourism {
+    background-image: url(../../assets/images/tourizm-foto/turizm.svg);
+}
+
+
+// ===================slider==========================
+
+.slider {
+    position: relative;
+    padding: 0 3.75rem;
+    margin-top: 1rem;
+
+    .slick-dots li button::before{
+        font-size: 0;
+    }
+
+    .slick-dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        button {
+            font-size: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+        }
+        li {
+            margin: 0 10px;
+        } 
+        .slick-active button {
+                background: transparent;
+                border: 2px solid black;
+            }
+    }
+
+        .slick-arrow {
+            font-size: 0;
+            position: absolute;
+            width: 2.5rem;
+            height: 4.4rem;
+            top: 40%;
+            z-index: 10;
+        }
+        .slick-prev, .slick-next::before{
+            content: url(../../assets//images/arrow.svg);
+
+        }
+        .slick-prev {
+            left: 0;
+            transform: rotateY(180deg);
+        }
+    
+        .slick-next {
+            right: 0;
+            top: 45%;
+        }
+}
+
+
+.menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    perspective: 62.5rem;
+    margin: 2rem 2rem 2rem 2.5rem;
+    cursor: pointer;
+
+    .front,
+    .back {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        transition: 1s;
+        backface-visibility: hidden;
+        border-radius: 1rem;
+        box-shadow: 10px 10px 25px $card-shadow;
+    }
+
+    .front {
+        position: absolute;
+        background: $frontbg;
+        border: 2px solid $front-color-border;
+
+        img {
+            width: 21rem;
+            height: 24rem;
+            border-radius: 10px;
+        }
+
+        .front-title {
+            font-size: 2rem;
+            padding: 1rem;
+            text-transform: lowercase;
+        }
+    }
+
+    &:hover .front {
+        transform: rotateY(180deg);
+    }
+
+    .back {
+        position: relative;
+        justify-content: center;
+        width: 21rem;
+        height: 28.2rem;
+        background: $back-bg;
+        color: black;
+        border: 4px solid $front-color-border;
+        box-shadow: inset 50px 50px 50px 50px $back-shadow;
+        transform: rotateY(180deg);
+
+        .back-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: $back-title-color;
+            text-transform: uppercase;
+            margin: 1rem;
+
+            &:hover {
+                color: $back-title-color-hover;
+            }
+        }
+
+        ul {
+            padding-left: 2rem;
+        }
+
+        li {
+            text-align: start;
+            list-style: disc;
+            margin: 0.7rem;
+
+            .back-list {
+                color: black;
+                font-size: 1.2rem;
+                padding-top: 1rem;
+                text-transform: uppercase;
+
+                &:hover {
+                    color: $back-list-color-hover;
+                }
+            }
+        }
+    }
+
+    &:hover .back {
+        transform: rotateY(360deg);
+    }
+}
+
+.home__marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: inherit;
+    font-size: 2rem;
+    color: rgb(27, 2, 2);
+    font-weight: bolder;
+    text-shadow: 3px 3px 15px $title-text-shadow;
+    padding: 10px 0;
+    margin-top: 1rem;
+    margin-bottom: -1rem;
+}
+
+.home__marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+@media (max-width: 1025px) {
+    .section {
+        margin-top: 4rem;    
+    }
+
+    .menu {
+        margin: 2rem 2rem 2rem 5rem;
+    }
+}
+
+@media (max-width: 913px) {
+    .menu {
+        margin: 2rem 2rem 2rem 3rem;
+        }
+    .section {
+        &__info {
+            flex-direction: column;
+        }
+
+        &__foto {
+            flex: none;
+            height: 20rem;
+            width: 100%;
+        }
+        
+    }
+
+    .on-all {
+        display: none;
+    }
+
+    
+}
+
+@media (max-width: 840px) {
+    .slider {
+        padding: 0 5px;
+    }
+
+    .slick-arrow {
+        width: 0;
+    }
+
+    .menu {
+        width: 200px;
+    }
+}
+
+@media (max-width: 769px) {
+    .menu {
+        margin: 2rem 29%;
+    }
+}
+
+@media (max-width: 541px) {
+    .menu {
+        margin: 2rem 19%;
+    }
+}
+
+@media (max-width: 431px) {
+    .menu {
+        margin: 2rem 13%;
+    }
+}
+@media (max-width: 413px) {
+    .menu {
+        margin: 2rem 10%;
+    }
+}
+
+
+@media (max-width: 350px) {
+    .conteiner {
+        width: 100%;
+    }
+
+    .menu .front img {
+        width: 250px;
+        height: 300px;
+    }
+
+    .section {
+        margin-top: 2rem;
+    }
+}

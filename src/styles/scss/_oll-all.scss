@@ -1,0 +1,17 @@
+@import "./_templates";
+
+.on-all {
+    @extend %button-on-all;
+}
+
+@keyframes on-all {
+    0% {
+        top: 90%;
+        right: 1%;
+    }
+
+    100% {
+        top: 70%;
+        right: 1%;
+    }
+}

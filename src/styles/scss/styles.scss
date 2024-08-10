@@ -1,0 +1,15 @@
+@import './changeable';
+@import './mixins';
+@import './templates';
+@import "./_header.scss";
+@import "./fotter.scss";
+
+.body {
+    background-color: $colorbg-body;
+}
+
+.conteiner {
+    max-width: 1310px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
